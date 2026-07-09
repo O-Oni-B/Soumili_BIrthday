@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 22nd Birthday Soumili 🖤</title>
+  <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+
+  <!-- FLOWER COLLAGE FRAME — fixed, z-index 0 -->
+  <div class="flower-frame" aria-hidden="true">
+    <img class="ff ff-corner-tl" src="assets/images/hibiscus-white-nobg.png" alt=""/>
+    <img class="ff ff-corner-tr" src="assets/images/hibiscus-red-nobg.png"   alt=""/>
+    <img class="ff ff-corner-bl" src="assets/images/lily-red-nobg.png"       alt=""/>
+    <img class="ff ff-corner-br" src="assets/images/lily-pink-nobg.png"      alt=""/>
+    <img class="ff ff-edge-tc"   src="assets/images/cherry-blossom-nobg.png" alt=""/>
+    <img class="ff ff-edge-bc"   src="assets/images/lily-pink-nobg.png"      alt=""/>
+    <img class="ff ff-edge-lc"   src="assets/images/hibiscus-white-nobg.png" alt=""/>
+    <img class="ff ff-edge-rc"   src="assets/images/cherry-blossom-nobg.png" alt=""/>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="confetti-container" id="confetti"></div>
+
+    <div class="hero-date">14th July 2026</div>
+    <div class="hero-days-num" id="ringDays">—</div>
+    <div class="hero-days-label">days remaining</div>
+    <svg style="display:none"><circle id="ringFill"/></svg>
+  </div>
+
+  <!-- NAV — Make a Wish injected by JS on birthday -->
+  <!-- Memory Wall + Mini Games injected by JS only when birthday arrives -->
+  <nav class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-tab="countdown">Countdown</button>
+  </nav>
+
+  <!-- COUNTDOWN -->
+  <div class="section active" id="s-countdown">
+    <div class="section-title">time until the day</div>
+    <div class="countdown-grid">
+      <div class="cd-unit"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Mins</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Secs</div></div>
+    </div>
+    <div class="tz-badge">counting down to <span>12:00 AM · July 14 · IST</span> 🇮🇳</div>
+
+  </div>
+
+  <!-- MEMORY WALL — photo/video collage with lightbox viewer -->
+  <div class="section" id="s-memories">
+    <div class="section-title">us 🖤</div>
+    <div class="collage-grid">
+      <div class="collage-item collage-tall" data-type="image" data-src="assets/photos/photo1.jpg">
+        <img src="assets/photos/photo1.jpg" alt=""/>
+      </div>
+      <div class="collage-item" data-type="image" data-src="assets/photos/photo4.jpg">
+        <img src="assets/photos/photo4.jpg" alt=""/>
+      </div>
+      <div class="collage-item" data-type="video" data-src="assets/photos/video1.mp4">
+        <video src="assets/photos/video1.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="collage-item collage-wide" data-type="image" data-src="assets/photos/photo2.jpg">
+        <img src="assets/photos/photo2.jpg" alt=""/>
+      </div>
+      <div class="collage-item" data-type="video" data-src="assets/photos/video2.mp4">
+        <video src="assets/photos/video2.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="collage-item" data-type="image" data-src="assets/photos/photo3.jpg">
+        <img src="assets/photos/photo3.jpg" alt=""/>
+      </div>
+      <div class="collage-item" data-type="video" data-src="assets/photos/video3.mp4">
+        <video src="assets/photos/video3.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="collage-item collage-wide" data-type="video" data-src="assets/photos/video4.mp4">
+        <video src="assets/photos/video4.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+
+    <div class="memory-note">
+      <p>Dear Soumili,</p>
+      <p>Happy 22nd Birthday, baby!! Bet you thought I forgot, haha.</p>
+      <p>I just wanted to let you know that you are such a smart, capable, and genuinely good person, and I fuck with you heavy, babe.</p>
+      <p>You have been the kindest person I've ever met, and I'm so proud of you every single day you decide to push yourself to study, even if it's just a little, because I know you've got that dawg in you.</p>
+      <p>I'm really proud of how you're handling everything that's going on right now, keeping your priorities in check, and slowly but surely growing into such a capable adult. Every day, little by little, you're becoming stronger, and I admire that more than you know.</p>
+      <p>I love you very much, and I truly believe there's a future waiting for you that works out exactly the way it should. No matter the setbacks or obstacles, I know you'll get there.</p>
+      <p>Happy Birthday, Soumili.</p>
+      <p>I love you very much. ❤️</p>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX VIEWER -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner" id="lightboxInner"></div>
+  </div>
+
+  <!-- MINI GAMES -->
+  <div class="section" id="s-games">
+    <div class="section-title">play a little</div>
+    <div class="games-grid">
+      <div class="game-card" data-game="trivia">
+        <div class="game-icon">🎵</div>
+        <div class="game-title">Deftones</div>
+        <div class="game-desc">10 questions</div>
+      </div>
+      <div class="game-card" data-game="estrivia">
+        <div class="game-icon">☀️</div>
+        <div class="game-title">Eternal Sunshine</div>
+        <div class="game-desc">10 questions</div>
+      </div>
+      <div class="game-card" data-game="b99trivia">
+        <div class="game-icon">🚔</div>
+        <div class="game-title">Brooklyn 99</div>
+        <div class="game-desc">10 questions</div>
+      </div>
+      <div class="game-card" data-game="snake">
+        <div class="game-icon">🐍</div>
+        <div class="game-title">Snake</div>
+        <div class="game-desc">Arrow keys / WASD</div>
+      </div>
+      <div class="game-card" data-game="breakout">
+        <div class="game-icon">🧱</div>
+        <div class="game-title">Breakout</div>
+        <div class="game-desc">← → / mouse</div>
+      </div>
+      <div class="game-card" data-game="spaceshooter">
+        <div class="game-icon">👾</div>
+        <div class="game-title">Space Shooter</div>
+        <div class="game-desc">← → move · Space shoot</div>
+      </div>
+      <div class="game-card" data-game="flappy">
+        <div class="game-icon">🌸</div>
+        <div class="game-title">Flappy Flower</div>
+        <div class="game-desc">Space or click</div>
+      </div>
+      <div class="game-card" data-game="dino">
+        <div class="game-icon">🦕</div>
+        <div class="game-title">Dino Run</div>
+        <div class="game-desc">Space or click</div>
+      </div>
+    </div>
+    <div class="game-area" id="gameArea">
+      <div style="color:var(--muted);font-size:14px;font-family:var(--font-main);font-weight:300;">Pick a game above ↑</div>
+    </div>
+  </div>
+
+  <!-- MAKE A WISH -->
+  <div class="section" id="s-wishes">
+    <img class="wish-section-deco" src="assets/images/flower-blue.jpg" alt=""/>
+    <div class="section-title">make a wish</div>
+    <div style="text-align:center; padding: 10px 0 4px;">
+      <div class="wish-orb" id="wishOrb">🕯️</div>
+    </div>
+    <div class="wish-sentence">
+      <span class="wish-label">I wish for</span>
+      <input class="wish-text-input" id="wishInput" placeholder="your wish…" maxlength="200"/>
+      <button class="wish-submit-btn" id="wishSubmitBtn">Submit Wish</button>
+    </div>
+    <div id="wishResult"></div>
+
+  </div>
+
+  <footer>made with 🖤 for soumili's 22nd · july 14 · 2026</footer>
+
+  <!-- JS load order: base → subclasses → bootstrap -->
+  <script src="js/BirthdayApp.js"></script>
+  <script src="js/Countdown.js"></script>
+  <script src="js/Memory.js"></script>
+  <script src="js/MiniGameConfig.js"></script>
+  <script src="js/MiniGame.js"></script>
+  <script src="js/GameTrivia.js"></script>
+  <script src="js/Ball.js"></script>
+  <script src="js/Paddle.js"></script>
+  <script src="js/Brick.js"></script>
+  <script src="js/GameBreakout.js"></script>
+  <script src="js/Snake.js"></script>
+  <script src="js/Food.js"></script>
+  <script src="js/GameSnake.js"></script>
+  <script src="js/Ship.js"></script>
+  <script src="js/Bullet.js"></script>
+  <script src="js/Enemy.js"></script>
+  <script src="js/GameSpaceShooter.js"></script>
+  <script src="js/Bird.js"></script>
+  <script src="js/Pipe.js"></script>
+  <script src="js/GameFlappy.js"></script>
+  <script src="js/Dino.js"></script>
+  <script src="js/Obstacle.js"></script>
+  <script src="js/GameDino.js"></script>
+  <script src="js/MiniGames.js"></script>
+  <script src="js/MakeAWish.js"></script>
+
+  <script>
+    // Confetti
+    const ce = document.getElementById('confetti');
+    const cc = ['#d4607a','#e8889e','#f5d0db','#7ab8d4','#c9a84c'];
+    for (let i = 0; i < 28; i++) {
+      const d = document.createElement('div'); d.className = 'confetti-dot';
+      d.style.cssText = `left:${Math.random()*100}%;background:${cc[i%cc.length]};animation-duration:${4+Math.random()*5}s;animation-delay:${Math.random()*6}s;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px;border-radius:${Math.random()>.5?'50%':'2px'};`;
+      ce.appendChild(d);
+    }
+
+    // Shared tab switcher — used by static tabs AND dynamically injected ones
+    window._switchTab = function(tab, btn) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      const section = document.getElementById('s-' + tab);
+      if (section) section.classList.add('active');
+      if (btn) btn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Redraw debug boxes after tab switch (new content is now visible)
+      setTimeout(() => { if (window.DEBUG_COLLISIONS) _drawDebugOverlays(); }, 50);
+    };
+
+    // Wire up static tabs using the shared function
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window._switchTab(btn.getAttribute('data-tab'), btn);
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxInner = document.getElementById('lightboxInner');
+
+    function openLightbox(type, src) {
+      lightboxInner.innerHTML = '';
+      if (type === 'image') {
+        const img = document.createElement('img');
+        img.src = src;
+        lightboxInner.appendChild(img);
+      } else {
+        const vid = document.createElement('video');
+        vid.src = src; vid.controls = true; vid.autoplay = true;
+        vid.style.cssText = 'max-width:90vw;max-height:90vh;border-radius:10px;display:block;';
+        lightboxInner.appendChild(vid);
+      }
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      // pause any playing video
+      const vid = lightboxInner.querySelector('video');
+      if (vid) vid.pause();
+      lightboxInner.innerHTML = '';
+    }
+
+    // Open on collage item click
+    document.querySelectorAll('.collage-item').forEach(function(item) {
+      item.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const type = item.getAttribute('data-type');
+        const src  = item.getAttribute('data-src');
+        if (type && src) openLightbox(type, src);
+      });
+    });
+
+    // Close when clicking the backdrop
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox || e.target === lightboxInner) closeLightbox();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ── DEBUG SYSTEM ──────────────────────────────────────────────────────────
+    // Ctrl+Shift+O  — toggle collision overlay
+    // Ctrl+Shift+P  — toggle birthday mode (forces isBirthday() = true/false)
+    window.DEBUG_COLLISIONS   = false;
+    window.DEBUG_BIRTHDAY_ON  = false;
+    window._debugOverlays     = [];
+    window._debugCanvases     = [];
+    window._debugRafId        = null;
+
+    function _clearDebugOverlays() {
+      window._debugOverlays.forEach(el => el.remove());
+      window._debugOverlays = [];
+      window._debugCanvases.forEach(c => c.remove());
+      window._debugCanvases = [];
+      document.querySelectorAll('.__debug_box').forEach(el => el.remove());
+      if (window._debugRafId) { cancelAnimationFrame(window._debugRafId); window._debugRafId = null; }
+    }
+
+    // Draw a labelled box onto a canvas 2d context
+    function _dbBox(ctx, x, y, w, h, color, label, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha || 1;
+      ctx.strokeStyle = color;
+      ctx.lineWidth   = 1.5;
+      ctx.fillStyle   = color.replace(')', ', 0.12)').replace('rgb(', 'rgba(');
+      ctx.fillRect(x, y, w, h);
+      ctx.strokeRect(x, y, w, h);
+      ctx.globalAlpha = Math.min(1, (alpha || 1) + 0.3);
+      ctx.fillStyle   = 'rgba(0,0,0,0.6)';
+      ctx.fillRect(x, y, ctx.measureText(label).width + 6, 14);
+      ctx.fillStyle   = '#fff';
+      ctx.font        = '9px monospace';
+      ctx.textBaseline = 'top';
+      ctx.fillText(label, x + 3, y + 3);
+      ctx.restore();
+    }
+
+    function _dbCircle(ctx, x, y, r, color, label) {
+      ctx.save();
+      ctx.strokeStyle = color; ctx.lineWidth = 1.5;
+      ctx.fillStyle   = color.replace(')', ', 0.12)').replace('rgb(', 'rgba(');
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+      if (label) {
+        ctx.fillStyle = '#fff'; ctx.font = '9px monospace'; ctx.textBaseline = 'top';
+        ctx.fillText(label, x - r, y - r);
+      }
+      ctx.restore();
+    }
+
+    // Draw game-object debug boxes — uses domain object structure from new minigames folder
+    function _drawGameDebug(ctx, game) {
+      if (!game) return;
+
+      // ── Breakout: bricks → paddle → ball ─────────────────────────────────
+      if (game._bricks && game._paddle && game._ball) {
+        game._bricks.forEach(b => {
+          if (!b.alive) return;
+          _dbBox(ctx, b.x, b.y, b.w, b.h, 'rgb(255,200,0)', 'brick');
+        });
+        _dbBox(ctx, game._paddle.x, game._paddle.y, game._paddle.w, game._paddle.h, 'rgb(0,200,255)', 'paddle');
+        _dbCircle(ctx, game._ball.x, game._ball.y, game._ball.r, 'rgb(255,80,80)', 'ball');
+      }
+
+      // ── Snake: food → body → head ────────────────────────────────────────
+      else if (game._snake && game._food) {
+        const G = game.CONFIG.gridSize;
+        _dbBox(ctx, game._food.x*G, game._food.y*G, G, G, 'rgb(255,200,0)', 'food');
+        game._snake.segments.forEach((s, i) => {
+          _dbBox(ctx, s.x*G, s.y*G, G, G, i===0?'rgb(255,80,80)':'rgb(0,255,100)', i===0?'head':'');
+        });
+      }
+
+      // ── Space Shooter: enemies → ship → bullets ───────────────────────────
+      else if (game._ship && game._enemies && game._bullets) {
+        game._enemies.forEach(e => {
+          if (!e.alive || e.exploding) return;
+          _dbBox(ctx, e.x-e.size/2, e.y, e.size, e.size, 'rgb(255,100,0)', 'enemy');
+        });
+        _dbBox(ctx, game._ship.x, game._ship.y, game._ship.w, game._ship.h, 'rgb(0,200,255)', 'ship');
+        game._bullets.forEach(b => {
+          if (!b.alive) return;
+          _dbBox(ctx, b.x-b.w/2, b.y, b.w, b.h, 'rgb(255,80,80)', '');
+        });
+      }
+
+      // ── Flappy: pipes → bird ─────────────────────────────────────────────
+      else if (game._bird && game._pipes) {
+        const { pipeWidth, canvasH:CH } = game.CONFIG;
+        game._pipes.forEach(p => {
+          _dbBox(ctx, p.x, 0, p.w, p.gapY, 'rgb(0,200,100)', 'top');
+          _dbBox(ctx, p.x, p.gapY+p.gap, p.w, CH-(p.gapY+p.gap), 'rgb(0,200,100)', 'bot');
+        });
+        _dbCircle(ctx, game._bird.x, game._bird.y, game._bird.r, 'rgb(255,80,80)', 'bird');
+      }
+
+      // ── Dino: obstacles → dino ───────────────────────────────────────────
+      else if (game._dino && game._obstacles) {
+        game._obstacles.forEach(o => {
+          _dbBox(ctx, o.x, o.y, o.w, o.h, 'rgb(255,200,0)', 'obs');
+        });
+        // Show actual hitbox (inset rect)
+        const r = game._dino.rect;
+        _dbBox(ctx, r.x, r.y, r.w, r.h, 'rgb(255,80,80)', 'dino');
+      }
+    }
+
+    // Create or reuse a debug overlay canvas.
+    // _wrapCanvas() puts the game canvas inside a tight position:relative div
+    // that is exactly canvas-CSS-size. We append our overlay into that same
+    // wrapper so top:0, left:0 is exactly the canvas top-left corner.
+    function _getOrCreateOverlay(gameCanvas) {
+      // The wrapper is the direct parent set by _wrapCanvas()
+      const wrapper = gameCanvas.parentElement;
+      if (!wrapper) return null;
+
+      let overlay = gameCanvas._debugOverlay;
+      if (!overlay || !overlay.isConnected) {
+        overlay = document.createElement('canvas');
+        overlay.className = '__debug_box';
+        wrapper.appendChild(overlay);
+        gameCanvas._debugOverlay = overlay;
+        window._debugCanvases.push(overlay);
+      }
+
+      // Same pixel dimensions as the game canvas — draw in canvas pixel space
+      overlay.width  = gameCanvas.width;
+      overlay.height = gameCanvas.height;
+
+      // Same CSS display size as the game canvas — lines up exactly on screen
+      overlay.style.cssText = `
+        position:absolute;
+        top:0; left:0;
+        width:${gameCanvas.style.width  || gameCanvas.width  + 'px'};
+        height:${gameCanvas.style.height || gameCanvas.height + 'px'};
+        pointer-events:none;
+        z-index:10;
+        display:block;
+      `;
+      return overlay;
+    }
+
+    // Main draw function — DOM boxes + canvas overlays
+    function _drawDebugOverlays() {
+      _clearDebugOverlays();
+      if (!window.DEBUG_COLLISIONS) return;
+
+      // ── DOM element boxes ──────────────────────────────────────────────────
+      const targets = [
+        { selector: '.hero',           color: 'rgba(255,0,0,0.2)',    label: 'hero' },
+        { selector: '.nav-tabs',       color: 'rgba(0,200,0,0.2)',    label: 'nav' },
+        { selector: '.nav-tab',        color: 'rgba(0,200,0,0.12)',   label: 'tab' },
+        { selector: '.section.active', color: 'rgba(0,100,255,0.1)',  label: 'section' },
+        { selector: '.section-title',  color: 'rgba(255,165,0,0.25)', label: 'title' },
+        { selector: '.countdown-grid', color: 'rgba(255,0,255,0.15)', label: 'cd-grid' },
+        { selector: '.cd-unit',        color: 'rgba(255,0,255,0.12)', label: 'cd-unit' },
+        { selector: '.game-card',      color: 'rgba(255,200,0,0.2)',  label: 'card' },
+        { selector: '.game-area',      color: 'rgba(255,100,0,0.15)', label: 'game-area' },
+        { selector: '.collage-item',   color: 'rgba(0,200,200,0.18)', label: 'collage' },
+        { selector: '.flower-frame',   color: 'rgba(255,0,100,0.06)', label: 'flower-frame' },
+        { selector: '.ff',             color: 'rgba(255,0,100,0.12)', label: 'flower' },
+        { selector: '.wish-orb',       color: 'rgba(200,0,255,0.2)',  label: 'orb' },
+        { selector: '.wish-sentence',  color: 'rgba(200,100,0,0.18)', label: 'wish-sentence' },
+      ];
+
+      targets.forEach(({ selector, color, label }) => {
+        document.querySelectorAll(selector).forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.width === 0 || r.height === 0) return;
+          const box = document.createElement('div');
+          box.className = '__debug_box';
+          box.style.cssText = `position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;background:${color};border:1px solid ${color.replace(/,\s*[\d.]+\)/, ', 0.7)')};pointer-events:none;z-index:99998;box-sizing:border-box;`;
+          const lbl = document.createElement('span');
+          lbl.style.cssText = 'position:absolute;top:0;left:0;font-size:9px;font-family:monospace;color:#fff;background:rgba(0,0,0,0.55);padding:1px 3px;line-height:1.4;white-space:nowrap;';
+          lbl.textContent = label;
+          box.appendChild(lbl);
+          document.body.appendChild(box);
+          window._debugOverlays.push(box);
+        });
+      });
+
+      // ── Canvas game object overlays ────────────────────────────────────────
+      // Find all active game canvases and draw debug on them each frame
+      function _tickCanvasDebug() {
+        if (!window.DEBUG_COLLISIONS) { window._debugRafId = null; return; }
+
+        // Find the active game and its canvas — works with new minigames folder structure
+        const activeGame = window._miniGamesInstance && window._miniGamesInstance._current;
+        if (activeGame && activeGame._canvas) {
+          const gameCanvas = activeGame._canvas;
+          const overlay    = _getOrCreateOverlay(gameCanvas);
+          if (overlay) {
+            const ctx = overlay.getContext('2d');
+            ctx.clearRect(0, 0, overlay.width, overlay.height);
+            _drawGameDebug(ctx, activeGame);
+          }
+        }
+
+        window._debugRafId = requestAnimationFrame(_tickCanvasDebug);
+      }
+      _tickCanvasDebug();
+
+      // Legend
+      const legend = document.createElement('div');
+      legend.className = '__debug_box';
+      legend.style.cssText = 'position:fixed;bottom:8px;right:8px;background:rgba(0,0,0,0.88);color:#fff;font-family:monospace;font-size:10px;padding:8px 10px;border-radius:6px;z-index:999999;line-height:1.7;pointer-events:none;';
+      legend.innerHTML = '<b style="color:#f88">DEBUG COLLISIONS ON</b><br>Ctrl+Shift+O to toggle<br>Ctrl+Shift+P = birthday mode<br><span style="color:#f80">■</span> obstacles/bricks/enemies<br><span style="color:#f55">■</span> player/ball/bird/dino<br><span style="color:#0f6">■</span> food/pipes<br><span style="color:#0cf">■</span> paddle/ship';
+      document.body.appendChild(legend);
+      window._debugOverlays.push(legend);
+    }
+
+    // ── Keyboard shortcuts ───────────────────────────────────────────────────
+    document.addEventListener('keydown', e => {
+      if (!e.ctrlKey || !e.shiftKey) return;
+
+      // Ctrl+Shift+O — toggle collision debug overlay
+      if (e.key === 'O') {
+        e.preventDefault();
+        window.DEBUG_COLLISIONS = !window.DEBUG_COLLISIONS;
+        if (!window.DEBUG_COLLISIONS) _clearDebugOverlays();
+        else _drawDebugOverlays();
+        console.log('[DEBUG] Collisions:', window.DEBUG_COLLISIONS ? 'ON' : 'OFF');
+      }
+
+      // Ctrl+Shift+P — toggle birthday mode live
+      if (e.key === 'P') {
+        e.preventDefault();
+        window.DEBUG_BIRTHDAY_ON = !window.DEBUG_BIRTHDAY_ON;
+        [countdown, memory, games, wish].forEach(m => {
+          if (m) m.DEBUG_BIRTHDAY_MODE = window.DEBUG_BIRTHDAY_ON;
+        });
+        console.log('[DEBUG] Birthday mode:', window.DEBUG_BIRTHDAY_ON ? 'ON' : 'OFF');
+        if (countdown) { countdown.init(); }
+      }
+    });
+
+    window.addEventListener('scroll', () => { if (window.DEBUG_COLLISIONS) _drawDebugOverlays(); });
+    window.addEventListener('resize', () => { if (window.DEBUG_COLLISIONS) _drawDebugOverlays(); });
+
+    // Boot all modules
+    const countdown = new Countdown();  countdown.init();
+    const memory    = new Memory();     memory.init();
+    const games     = new MiniGames();  games.init();
+    const wish      = new MakeAWish();  wish.init();
+    // Expose for debug system
+    window._miniGamesInstance = games;
+
+    // Redraw debug boxes after boot (elements may have changed)
+    setTimeout(() => { if (window.DEBUG_COLLISIONS) _drawDebugOverlays(); }, 100);
+  </script>
+</body>
+</html>
